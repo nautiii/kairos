@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<List<BirthdayModel>>(
       stream: repository.watchBirthdays(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         switch (snapshot.connectionState) {
@@ -56,15 +56,15 @@ class BirthdayList extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              SizedBox(height: 16),
+            children: [
+              const SizedBox(height: 16),
               Header(),
-              SizedBox(height: 24),
-              NextBirthdayCard(),
-              SizedBox(height: 20),
-              SearchBarWidget(),
-              SizedBox(height: 20),
-              Expanded(child: ContactSections()),
+              const SizedBox(height: 24),
+              const NextBirthdayCard(),
+              const SizedBox(height: 20),
+              const SearchBarWidget(),
+              const SizedBox(height: 20),
+              const Expanded(child: ContactSections()),
             ],
           ),
         ),
