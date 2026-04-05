@@ -17,28 +17,34 @@ class NextBirthdayCard extends StatelessWidget {
         children: [
           const CircleAvatar(radius: 24),
           const SizedBox(width: 14),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "Prochain anniversaire",
-                style: TextStyle(color: Colors.white70),
-              ),
-              SizedBox(height: 4),
-              Text(
-                "Sophie Martin",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+          const Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Prochain anniversaire",
+                  style: TextStyle(color: Colors.white70),
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              Text(
-                "Dans 2 jours • 24 Avril",
-                style: TextStyle(color: Colors.white70),
-              ),
-            ],
+                SizedBox(height: 4),
+                Text(
+                  "XXXXXX XXXXXX",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  "Dans 2 jours • 24 Avril",
+                  style: TextStyle(color: Colors.white70),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
-          const Spacer(),
+          const SizedBox(width: 12),
           const Icon(Icons.cake, color: Colors.white),
         ],
       ),
