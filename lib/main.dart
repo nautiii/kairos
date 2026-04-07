@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'core/app_initializer.dart';
-import 'data/repositories/birthday_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,9 +22,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
-        ChangeNotifierProvider(
-          create: (_) => BirthdayProvider(BirthdayRepository()),
-        ),
+        ChangeNotifierProvider(create: (_) => BirthdayProvider()),
       ],
       child: const App(),
     ),

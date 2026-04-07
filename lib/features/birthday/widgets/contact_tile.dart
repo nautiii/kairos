@@ -1,3 +1,4 @@
+import 'package:an_ki/core/extensions/birthday_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/models/birthday_model.dart';
@@ -32,7 +33,7 @@ class ContactTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${birthday.date.day} ${birthday.date.month} ${birthday.date.year} • 39 ans",
+                  "${birthday.formattedDate} • ${birthday.age} ans",
                   style: const TextStyle(color: Colors.white54),
                 ),
               ],

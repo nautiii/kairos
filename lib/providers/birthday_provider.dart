@@ -6,16 +6,16 @@ import 'package:an_ki/data/repositories/birthday_repository.dart';
 import 'package:flutter/material.dart';
 
 class BirthdayProvider extends ChangeNotifier {
-  BirthdayProvider(this.repository) {
-    _listenBirthdays();
-  }
+  final BirthdayRepository repository = BirthdayRepository();
 
-  final BirthdayRepository repository;
   StreamSubscription<List<BirthdayModel>>? _subscription;
-
   List<BirthdayModel> birthdays = [];
   bool isLoading = true;
   bool isCreating = false;
+
+  BirthdayProvider() {
+    _listenBirthdays();
+  }
 
   void _listenBirthdays() {
     _subscription = repository.watchBirthdays().listen(
