@@ -9,6 +9,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserModel? user = context.watch<UserProvider>().user;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -16,23 +17,23 @@ class Header extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Bonjour 👋", style: TextStyle(color: Colors.white70)),
+            Text("Bonjour 👋", style: TextStyle(color: colorScheme.onSurfaceVariant)),
             user == null
                 ? const Center(child: CircularProgressIndicator())
                 : Text(
                   "${user.surname} ${user.name}",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: colorScheme.onSurface,
                   ),
                 ),
           ],
         ),
-        const CircleAvatar(
+        CircleAvatar(
           radius: 22,
-          backgroundColor: Colors.white10,
-          child: Icon(Icons.cake_outlined, color: Colors.white),
+          backgroundColor: colorScheme.surfaceContainerHighest,
+          child: Icon(Icons.cake_outlined, color: colorScheme.onSurface),
         ),
       ],
     );
