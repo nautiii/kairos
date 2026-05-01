@@ -8,6 +8,7 @@ import 'package:an_ki/features/birthday/home_page.dart';
 import 'package:an_ki/l10n/app_localizations.dart';
 import 'package:an_ki/providers/auth_provider.dart';
 import 'package:an_ki/providers/birthday_provider.dart';
+import 'package:an_ki/providers/cache_provider.dart';
 import 'package:an_ki/providers/theme_provider.dart';
 import 'package:an_ki/providers/user_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,6 +21,10 @@ import 'core/app_initializer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Initialiser le cache
+  final cacheProvider = CacheProvider();
+  await cacheProvider.init();
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseFirestore.instance.settings = const Settings(
     persistenceEnabled: true,
@@ -30,6 +35,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => cacheProvider),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),

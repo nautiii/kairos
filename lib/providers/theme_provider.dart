@@ -8,7 +8,7 @@ class ThemeProvider extends ChangeNotifier {
   bool get isDark => _themeMode == ThemeMode.dark;
 
   void toggle(BuildContext context) {
-    final bool currentlyDark =
+    final currentlyDark =
         _themeMode == ThemeMode.dark ||
         (_themeMode == ThemeMode.system &&
             MediaQuery.platformBrightnessOf(context) == Brightness.dark);
@@ -17,4 +17,3 @@ class ThemeProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
-
